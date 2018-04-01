@@ -12,9 +12,9 @@ class UserProvider implements UserProviderInterface
 {
     public function loadUserByUsername($username)
     {
-        $username = 'user';
-        $password = 'name';
-        $salt     = 'sale';
+        $username = 'senso';
+        $password = 'rario';
+        $salt     = '';
         $roles    = ['ROLE_ADMIN'];
 
         return new User($username, $password, $salt, $roles);
