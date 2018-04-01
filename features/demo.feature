@@ -6,6 +6,13 @@ Feature:
     Scenario: It receives a response from Symfony's kernel
         When client sends GET request to "/"
         Then the response should be received
+        And the response should be:
+        """
+        {
+        "message": "Welcome to your new controller!",
+        "path": "src/Controller/DefaultController.php"
+        }
+        """
 
     Scenario: fake login
         When client sends POST request to "/login":

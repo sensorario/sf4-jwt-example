@@ -85,4 +85,23 @@ class FeatureContext implements Context
     {
         throw new PendingException();
     }
+
+    /**
+     * @Then the response should be:
+     */
+    public function theResponseShouldBe(
+        PyStringNode $stringData = null
+    ) {
+        $jsonResponse = json_encode(
+            $this->response->getContent(),
+            true
+        );
+
+        $expectedResponse = $stringData->getRaw();
+
+        echo json_encode([
+            'jsonResponse' => $jsonResponse,
+            'expectedResponse' => $expectedResponse,
+        ]);
+    }
 }
