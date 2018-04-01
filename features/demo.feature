@@ -24,3 +24,13 @@ Feature:
         """
         Then the response should be received
         And the response is shown
+
+    Scenario: author info
+        When client sends GET request to "/author"
+        And the response should be:
+        """
+        {
+        "username": "sensorario",
+        "url": "http://sensorario.github.io"
+        }
+        """

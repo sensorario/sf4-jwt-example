@@ -17,4 +17,15 @@ class DefaultController extends Controller
             'path' => 'src/Controller/DefaultController.php',
         ]);
     }
+
+    /**
+     * @Route("/author", name="author")
+     */
+    public function author()
+    {
+        return $this->json([
+            'username' => 'sensorario',
+            'url' => 'http://sensorario.github.io',
+        ]);
+    }
 }
