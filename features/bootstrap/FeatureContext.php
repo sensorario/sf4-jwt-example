@@ -92,16 +92,16 @@ class FeatureContext implements Context
     public function theResponseShouldBe(
         PyStringNode $stringData = null
     ) {
-        $jsonResponse = json_encode(
-            $this->response->getContent(),
-            true
-        );
-
-        $expectedResponse = $stringData->getRaw();
-
-        echo json_encode([
-            'jsonResponse' => $jsonResponse,
-            'expectedResponse' => $expectedResponse,
-        ]);
+        $expected = json_decode($stringData->getRaw());
+        $effective = json_decode($this->response->getContent());
+        if ($expected != $effective) {
+            throw new \RuntimeException(
+                "Oops! Expected \n\n"
+                . var_export($expected, true)
+                ."\n\n but received \n\n"
+                . var_export($effective, true)
+                ."\n\n"
+            );
+        }
     }
 }
