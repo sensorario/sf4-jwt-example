@@ -23,7 +23,7 @@ Feature:
         }
         """
         Then the response should be received
-        And the response is shown
+        #And the response is shown
 
     Scenario: author info
         When client sends GET request to "/author"
